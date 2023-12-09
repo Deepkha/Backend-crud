@@ -68,8 +68,7 @@ app.post("/api/users", async (req, res) => {
       !body.jobTitle ||
       !body.NumId ) {
 
-    return res.status(400).json({ msg: "All fields should be filled, and email should not be null" });
-
+    return res.status(400).json({ msg: "All fields should be filled" });    
   }
 
   const result = await User.create(
