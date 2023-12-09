@@ -88,7 +88,7 @@ app.patch("/api/users/:id",async (req,res) =>{
     await User.findByIdNumAndUpdate(req.params.id,{ lastName:"Bisht"});
     res.status(201).json({ status : "changed" });
 })
-app.delete("api/users/:id",async(req,res) =>{
+app.delete("/api/users/:id",async(req,res) =>{
     try{
       await User.findByIdNumAndDelete(req.params.id);
     return res.json({status :"Susccess"});
@@ -99,7 +99,7 @@ app.delete("api/users/:id",async(req,res) =>{
   })
 
 
-app.delete("api/users/", async(req,res) =>{
+app.delete("/api/users", async(req,res) =>{
    
     await User.findByIdAndDelete(req.params.id);
     res.status(201).json({status:"success"});
