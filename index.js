@@ -15,18 +15,21 @@ mongoose
   const userSchema = new mongoose.Schema({
     NumId: {
       type: Number,
-     
+      unique:true,
+      required:true,
     },
     firstName: {
       type: String,
-      
+      unique:true,
+      required:true,
     },
     lastName: {
       type: String,
     },
     email: {
       type: String,
-      
+      unique:true,
+      required:true,
     },
     jobTitle: {
       type: String,
@@ -108,7 +111,7 @@ app.delete("/api/users/:id",async(req,res) =>{
 
 app.delete("/api/users", async(req,res) =>{
    
-    await User.findByIdAndDelete(req.params.id);
+    await User.deleteMany({});
     res.status(201).json({status:"success"});
 })
 
